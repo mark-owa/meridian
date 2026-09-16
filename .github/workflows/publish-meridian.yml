@@ -41,3 +41,5 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Publish Meridian portfolio source"
           git push origin HEAD:main
+
+# retry after verified chunk repair
