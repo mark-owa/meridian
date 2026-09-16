@@ -30,6 +30,11 @@ jobs:
           test -f /tmp/meridian-source/backend/main.py
           test -f /tmp/meridian-source/frontend/package.json
 
+          # The default GITHUB_TOKEN may not create a new workflow file.
+          # Publish the application source first; ci.yml is restored afterward
+          # through the connected GitHub account.
+          rm -f /tmp/meridian-source/.github/workflows/ci.yml
+
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -a /tmp/meridian-source/. .
           mkdir -p .github/workflows
@@ -41,5 +46,3 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Publish Meridian portfolio source"
           git push origin HEAD:main
-
-# retry after verified chunk repair
