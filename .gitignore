@@ -1,0 +1,38 @@
+# Backend (Python)
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+backend/.ruff_cache/
+backend/htmlcov/
+backend/.coverage
+backend/coverage.xml
+backend/*.db-*
+backend/*.egg-info/
+backend/.venv/
+backend/venv/
+backend/*.db
+backend/uploads/
+backend/chroma_db/
+backend/tests/.tmp/
+
+# Frontend (Node)
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.tsbuildinfo
+
+# Env files — never commit real secrets
+.env
+.env.*
+!.env.example
+!*/.env.example
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+
+# Docker
+docker-compose.override.yml

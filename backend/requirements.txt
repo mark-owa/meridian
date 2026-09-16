@@ -1,0 +1,42 @@
+# Core API
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+
+# Settings & validation
+pydantic==2.10.4
+pydantic-settings==2.7.1
+email-validator==2.2.0
+
+# Database
+sqlalchemy==2.0.36
+alembic==1.14.0
+psycopg2-binary==2.9.10
+
+# Auth
+python-jose[cryptography]==3.3.0
+argon2-cffi==23.1.0
+
+# AI / RAG
+openai==2.45.0
+chromadb==0.5.23
+# Chroma 0.5 uses the positional capture API removed by newer PostHog releases.
+posthog==3.7.0
+tiktoken==0.8.0
+
+# Document parsing
+pypdf==5.1.0
+python-docx==1.1.2
+
+# Resilience
+tenacity==9.0.0
+
+# Background jobs
+celery==5.4.0
+redis==5.2.1
+
+# Rate limiting
+slowapi==0.1.9
+
+# Config
+python-dotenv==1.0.1

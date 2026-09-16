@@ -1,0 +1,31 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+
+[tool.coverage.run]
+source = ["api", "services", "models", "utils", "worker"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+precision = 1
+skip_empty = true
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
+ignore = [
+    "E501",  # line length — formatting is handled by editors/CI, not a hard rule here
+    "B008",  # FastAPI's `Depends(...)` as a default argument is the intended pattern
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/conftest.py" = ["E402"]  # env vars must be set before importing app modules

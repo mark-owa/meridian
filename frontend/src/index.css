@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Ink — cool-toned near-navy neutrals, used for text and dark surfaces */
+  --color-ink-950: #0c0e13;
+  --color-ink-900: #14171f;
+  --color-ink-800: #1e2230;
+  --color-ink-700: #2c3244;
+  --color-ink-600: #454d63;
+  --color-ink-500: #5f6a82;
+  --color-ink-400: #8891a3;
+  --color-ink-300: #b4bac6;
+  --color-ink-200: #d8dbe2;
+  --color-ink-100: #ebedf1;
+  --color-ink-50: #f5f6f8;
+
+  /* Paper — the light background surface */
+  --color-paper: #fafaf8;
+  --color-paper-raised: #ffffff;
+
+  /* Brass — the single accent color, used sparingly for primary actions */
+  --color-brass-700: #8a6529;
+  --color-brass-600: #a17530;
+  --color-brass-500: #b8873a;
+  --color-brass-400: #cba05f;
+  --color-brass-300: #ddbe8c;
+  --color-brass-100: #f3e8d3;
+
+  /* Teal — secondary accent, mainly for charts and qualified/positive states */
+  --color-teal-700: #1f4e46;
+  --color-teal-600: #276057;
+  --color-teal-500: #2b6e63;
+  --color-teal-400: #4c8f82;
+  --color-teal-100: #dceae6;
+
+  /* Status colors, kept muted rather than saturated stock red/green/yellow */
+  --color-success: #3f7d5c;
+  --color-success-100: #e1ede6;
+  --color-danger: #af4a38;
+  --color-danger-100: #f3e2de;
+  --color-warning: #b8873a;
+  --color-warning-100: #f3e8d3;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink-900 font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    @apply bg-brass-100 text-ink-900;
+  }
+
+  * {
+    @apply border-ink-100;
+  }
+}
+
+@layer utilities {
+  /* The one decorative signature element: a faint coordinate-grid texture,
+     used only on the auth screens and empty states — evokes a navigation
+     chart without competing with dense, data-heavy UI elsewhere. */
+  .chart-grid {
+    background-image:
+      linear-gradient(to right, var(--color-ink-100) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-ink-100) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
