@@ -20,7 +20,7 @@ page.on('response', r => {
   }
 });
 
-const email = 'portfolio-demo@meridian.local';
+const email = 'portfolio-demo@example.com';
 const password = 'Portfolio123!';
 const evidence = {
   recorded_at: new Date().toISOString(),
@@ -67,7 +67,7 @@ try {
     {
       company_name: 'Northwind Logistics',
       contact_name: 'Avery Chen',
-      contact_email: 'avery@northwind.example',
+      contact_email: 'avery.northwind@example.com',
       industry: 'Logistics',
       budget_range: '$25k-$50k',
       pain_points: 'Manual incident triage and fragmented operations data'
@@ -75,7 +75,7 @@ try {
     {
       company_name: 'Helios Manufacturing',
       contact_name: 'Mika Santos',
-      contact_email: 'mika@helios.example',
+      contact_email: 'mika.helios@example.com',
       industry: 'Manufacturing',
       budget_range: '$10k-$25k',
       pain_points: 'Document-heavy supplier workflows'
@@ -83,7 +83,7 @@ try {
     {
       company_name: 'Lattice Services',
       contact_name: 'Jordan Lee',
-      contact_email: 'jordan@lattice.example',
+      contact_email: 'jordan.lattice@example.com',
       industry: 'Professional Services',
       budget_range: '$5k-$10k',
       pain_points: 'Slow lead follow-up and scattered knowledge'
