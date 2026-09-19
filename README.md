@@ -1,7 +1,11 @@
 # Meridian
 
-Meridian is a portfolio application for document search, structured extraction,
+Meridian is a full-stack application for document search, structured extraction,
 and lead qualification. It combines a React interface with a FastAPI backend.
+
+**Repository history:** Meridian was developed before this GitHub repository was
+created. It was published here later, so the public commit history begins with the
+repository import rather than the project's original development timeline.
 
 - **Knowledge Base:** upload PDF, DOCX, TXT, or Markdown files and ask questions
   using retrieved excerpts. Answers include source references.
@@ -152,7 +156,8 @@ setting in Compose and `frontend/.env` in local development.
 - Set `CHAT_MODEL`, `FAST_MODEL`, and `EMBEDDING_MODEL` to models available to your
   API account. Chat calls use Chat Completions, `temperature`, and `max_tokens`;
   extraction and qualification additionally require JSON-object output support.
-  Live model access has not been verified in this review.
+  CI uses mocked OpenAI responses; live behavior depends on the configured API
+  account and model availability.
 - SQLite is intended for development. Existing databases require Alembic migrations
   for schema changes; automatic table creation at startup does not migrate a schema.
 - Document storage, vectors, database commits, and queue publication do not form
@@ -166,4 +171,5 @@ setting in Compose and `frontend/.env` in local development.
   or complete role-permission system. JWTs are kept in browser local storage;
   password reset and refresh-token workflows are not implemented.
 - AI scores and drafts are suggestions; no email is sent by the application.
-  Dependency security updates and a live deployment review remain separate work.
+  Dependency security review and internet-facing deployment hardening are outside
+  the current scope.
