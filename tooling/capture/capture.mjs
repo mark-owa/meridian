@@ -48,7 +48,7 @@ async function jsonRequest(method, path, body, token) {
 }
 
 try {
-  const reg = await jsonRequest('POST', '/api/auth/register', {
+  const reg = await jsonRequest('POST', '/api/v1/auth/register', {
     full_name: 'Portfolio Demo',
     email,
     company: 'Meridian Demo',
@@ -58,7 +58,7 @@ try {
     assert.fail(`register failed: ${reg.response.status()} ${JSON.stringify(reg.data)}`);
   }
 
-  const login = await jsonRequest('POST', '/api/auth/login', { email, password });
+  const login = await jsonRequest('POST', '/api/v1/auth/login', { email, password });
   assert.equal(login.response.status(), 200);
   const token = login.data.access_token;
   assert(token);
@@ -90,7 +90,7 @@ try {
     }
   ];
 
-  const existing = await jsonRequest('GET', '/api/leads', undefined, token);
+  const existing = await jsonRequest('GET', '/api/v1/leads', undefined, token);
   assert.equal(existing.response.status(), 200);
   if (existing.data.total === 0) {
     const created = [];
@@ -99,9 +99,9 @@ try {
       assert.equal(result.response.status(), 201);
       created.push(result.data);
     }
-    assert.equal((await jsonRequest('PATCH', `/api/leads/${created[0].id}/status?status=qualified`, undefined, token)).response.status(), 200);
-    assert.equal((await jsonRequest('PATCH', `/api/leads/${created[1].id}/status?status=contacted`, undefined, token)).response.status(), 200);
-    assert.equal((await jsonRequest('PATCH', `/api/leads/${created[2].id}/status?status=converted`, undefined, token)).response.status(), 200);
+    assert.equal((await jsonRequest('PATCH', `/api/v1/leads/${created[0].id}/status?status=qualified`, undefined, token)).response.status(), 200);
+    assert.equal((await jsonRequest('PATCH', `/api/v1/leads/${created[1].id}/status?status=contacted`, undefined, token)).response.status(), 200);
+    assert.equal((await jsonRequest('PATCH', `/api/v1/leads/${created[2].id}/status?status=converted`, undefined, token)).response.status(), 200);
   }
 
   await page.goto(`${webURL}/login`);
