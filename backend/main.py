@@ -16,7 +16,7 @@ from sqlalchemy import text
 
 from api.routes import analytics, auth, documents, extraction, knowledge, leads
 from config import get_settings
-from models.database import engine, init_db
+from models.database import engine
 from utils.logging import configure_logging
 from utils.rate_limit import limiter
 
@@ -29,7 +29,6 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     settings.validate_production_readiness()
-    init_db()
     logger.info("Meridian API started (environment=%s)", settings.ENVIRONMENT)
     yield
     logger.info("Meridian API shutting down")
