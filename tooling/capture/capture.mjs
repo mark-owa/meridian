@@ -95,7 +95,7 @@ try {
   if (existing.data.total === 0) {
     const created = [];
     for (const lead of leads) {
-      const result = await jsonRequest('POST', '/api/leads', lead, token);
+      const result = await jsonRequest('POST', '/api/v1/leads', lead, token);
       assert.equal(result.response.status(), 201);
       created.push(result.data);
     }
