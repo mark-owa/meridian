@@ -38,7 +38,6 @@ jobs:
           done
           curl -fsS http://localhost:8000/health
           curl -fsS http://localhost:5173 >/dev/null
-          docker compose exec -T api alembic upgrade head
 
       - name: Install capture tools
         working-directory: tooling/capture

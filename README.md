@@ -69,7 +69,9 @@ python3 -c "import secrets; print(secrets.token_hex(32))"
 - Database readiness: http://localhost:8000/health/ready
 
 Compose provides PostgreSQL, Redis, Chroma, the API, the worker, and the web
-interface. Uploaded files, database records, and vectors use named volumes.
+interface. The API runs Alembic migrations before Uvicorn starts, so Alembic is
+the schema authority for the Compose path. Uploaded files, database records, and
+vectors use named volumes.
 Redis queue data is not persisted across container replacement. The supplied
 configuration is for a local demo, not an internet-facing production deployment.
 
