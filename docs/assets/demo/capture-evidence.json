@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-09-19T11:54:08.413Z",
+  "source_commit": "d6395b70215fbeeeceb2feb24bc5a85ab777db22",
+  "run_url": "https://github.com/mark-owa/meridian/actions/runs/35441283417",
+  "environment": "Docker Compose: PostgreSQL, Redis, Chroma, FastAPI, nginx and production React build",
+  "checks": {
+    "dashboard": "rendered after authenticated API-backed setup",
+    "leads": "three leads created through the real API and rendered in the UI",
+    "knowledge_base": "real product surface; no synthetic RAG answer inserted",
+    "document_intelligence": "real product surface; no synthetic extraction inserted"
+  },
+  "note": "UI/demo evidence only. No live model outputs are fabricated or asserted."
+}
