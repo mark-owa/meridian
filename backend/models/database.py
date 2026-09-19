@@ -145,15 +145,6 @@ class QueryLog(Base):
     created_at = Column(DateTime, default=utcnow)
 
 
-def init_db() -> None:
-    """Create tables that don't exist yet. Safe to call on every boot.
-
-    For schema changes after the first deploy, use Alembic migrations
-    (see backend/alembic/) rather than relying on this.
-    """
-    Base.metadata.create_all(bind=engine)
-
-
 def get_db():
     db = SessionLocal()
     try:
